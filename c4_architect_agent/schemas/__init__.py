@@ -1,0 +1,43 @@
+"""Explicit input and output JSON schemas for C4 Model tools and sub-agents."""
+
+from .c4_schemas import (
+    AdrRecordInput,
+    AdrRecordOutput,
+    C4ArchitectureSpecInput,
+    C4CodeElementSpec,
+    C4ComponentSpec,
+    C4ContainerSpec,
+    C4DiagramBundleOutput,
+    C4ExternalSystemSpec,
+    C4PersonSpec,
+    C4RelationshipSpec,
+    ComplianceCheckInput,
+    ComplianceFinding,
+    ComplianceReportOutput,
+    GuidedToolError,
+    PatternSearchInput,
+    PublishBundleInput,
+    SchemaValidationError,
+    validate_against_schema,
+)
+
+__all__ = [
+    "AdrRecordInput",
+    "AdrRecordOutput",
+    "C4ArchitectureSpecInput",
+    "C4CodeElementSpec",
+    "C4ComponentSpec",
+    "C4ContainerSpec",
+    "C4DiagramBundleOutput",
+    "C4ExternalSystemSpec",
+    "C4PersonSpec",
+    "C4RelationshipSpec",
+    "ComplianceCheckInput",
+    "ComplianceFinding",
+    "ComplianceReportOutput",
+    "GuidedToolError",
+    "PatternSearchInput",
+    "PublishBundleInput",
+    "SchemaValidationError",
+    "validate_against_schema",
+]

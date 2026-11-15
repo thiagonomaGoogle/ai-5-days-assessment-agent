@@ -1,0 +1,138 @@
+{
+  "eval_set_id": "c4_architect_golden_evalset_v1",
+  "name": "C4 Model Architecture Creator Golden Evaluation Suite",
+  "description": "Golden evaluation scenarios verifying reference pattern retrieval, L1-L4 C4 Mermaid & Structurizr DSL synthesis, Well-Architected compliance auditing, and HITL catalog publication gates.",
+  "creation_timestamp": 1763160000.0,
+  "eval_cases": [
+    {
+      "eval_id": "case_01_fintech_reference_lookup",
+      "conversation": [
+        {
+          "invocation_id": "inv_01_fintech_patterns",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Search our reference architecture catalog for PCI-DSS event-driven payment and ledger C4 blueprints."
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Found the Event-Driven Payment & Ledger C4 Reference Architecture featuring an API Gateway on Cloud Run (HTTPS/OIDC), Payment Orchestrator Service (gRPC/mTLS), Cloud Pub/Sub Event Bus, Immutable Ledger Service, and Cloud Spanner."
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "search_reference_architecture_patterns",
+                "args": {
+                  "query": "event-driven payment ledger pci-dss",
+                  "domain_filter": "fintech",
+                  "top_k": 3
+                }
+              }
+            ],
+            "tool_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "case_02_generate_and_audit_c4_architecture",
+      "conversation": [
+        {
+          "invocation_id": "inv_02_full_c4_synthesis",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Design a PCI-DSS compliant C4 Model architecture (L1 Context, L2 Container, L3 Component, L4 Code, and Structurizr DSL) for 'omnipay_checkout', an e-commerce payment platform with a Customer actor, Checkout Web App, Payment API Service, Pub/Sub Event Queue, Cloud SQL Ledger Database, and External Card Network."
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Generated validated C4Context, C4Container, C4Component, classDiagram, and Structurizr DSL for omnipay_checkout with a 100/100 Well-Architected compliance score (all edges use TLS/mTLS and database access is isolated behind Payment API Service)."
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "extract_c4_entities_from_requirements",
+                "args": {
+                  "project_slug": "omnipay_checkout",
+                  "requirements_brief": "PCI-DSS e-commerce payment platform with Customer actor, Checkout Web App, Payment API Service, Pub/Sub Event Queue, Cloud SQL Ledger Database, and External Card Network.",
+                  "compliance_profile": "pci-dss"
+                }
+              },
+              {
+                "name": "generate_c4_mermaid_and_structurizr_dsl",
+                "args": {
+                  "architecture_spec": {
+                    "project_slug": "omnipay_checkout",
+                    "system_name": "OmniPay Checkout Platform",
+                    "system_description": "PCI-DSS tokenized payment orchestration and ledger platform.",
+                    "compliance_profile": "pci-dss"
+                  }
+                }
+              },
+              {
+                "name": "validate_c4_architecture_compliance",
+                "args": {
+                  "architecture_spec": {
+                    "project_slug": "omnipay_checkout"
+                  }
+                }
+              }
+            ],
+            "tool_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "case_03_hitl_gated_enterprise_publish",
+      "conversation": [
+        {
+          "invocation_id": "inv_03_publish_gate",
+          "user_content": {
+            "role": "user",
+            "parts": [
+              {
+                "text": "Publish omnipay_checkout v1.0.0 to the enterprise-catalog."
+              }
+            ]
+          },
+          "final_response": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Publication to enterprise-catalog is paused awaiting explicit Human-in-the-Loop approval for omnipay_checkout@v1.0.0."
+              }
+            ]
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "publish_approved_c4_architecture_bundle",
+                "args": {
+                  "project_slug": "omnipay_checkout",
+                  "version_tag": "v1.0.0",
+                  "target_catalog": "enterprise-catalog"
+                }
+              }
+            ],
+            "tool_responses": []
+          }
+        }
+      ]
+    }
+  ]
+}

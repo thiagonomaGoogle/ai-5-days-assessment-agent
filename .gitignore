@@ -1,0 +1,32 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments & build artifacts
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Secrets & local runtime state (never commit credentials or local DBs)
+.env
+*.pem
+*.key
+*credentials*.json
+*service-account*.json
+data/*.db
+data/*.db-journal
+data/*.sqlite*
+
+# Terraform state & provider binaries
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/crash.log

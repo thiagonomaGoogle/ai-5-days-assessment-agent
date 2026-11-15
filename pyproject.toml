@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c4-architect-agent"
+version = "1.0.0"
+description = "Enterprise C4 Model Architecture Creator Multi-Agent System built with Google ADK"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Thiago Mascarenhas" }
+]
+dependencies = [
+    "google-adk>=1.0.0",
+    "google-genai>=1.5.0",
+    "pydantic>=2.7.0",
+    "aiosqlite>=0.20.0",
+    "sqlalchemy>=2.0.30",
+    "python-json-logger>=2.0.7",
+    "google-cloud-logging>=3.10.0",
+    "google-cloud-secret-manager>=2.20.0",
+    "google-cloud-dlp>=3.18.0",
+    "google-cloud-aiplatform>=1.70.0",
+    "opentelemetry-api>=1.25.0",
+    "opentelemetry-sdk>=1.25.0",
+    "opentelemetry-exporter-gcp-trace>=1.7.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.7",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.5.0",
+]
+
+[project.scripts]
+c4-eval = "evaluations.run_offline_eval:main"
+
+[tool.setuptools.packages.find]
+include = ["c4_architect_agent*", "evaluations*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
